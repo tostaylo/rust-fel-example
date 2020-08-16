@@ -72,4 +72,4 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm run node-server
-          wait-on: 'http://localhost:8080'
+          wait-on: 'http://localhost:8000'

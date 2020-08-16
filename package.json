@@ -11,15 +11,13 @@
 		"cypress:run": "cypress run",
 		"ci": "sh ci.sh",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"node-server": "http-server"
+		"node-server": "http-server --port 8000"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"cypress": "^4.12.1",
-		"wait-on": "^5.2.0"
-	},
-	"dependencies": {
+		"wait-on": "^5.2.0",
 		"http-server": "^0.12.3"
 	}
 }
