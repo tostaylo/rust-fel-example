@@ -1,0 +1,15 @@
+{
+  "name": "rust-fel-example",
+  "collaborators": [
+    "Torre Taylor"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "rust_fel_example_bg.wasm",
+    "rust_fel_example.js",
+    "rust_fel_example.d.ts"
+  ],
+  "module": "rust_fel_example.js",
+  "types": "rust_fel_example.d.ts",
+  "sideEffects": "false"
+}
