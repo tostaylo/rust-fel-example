@@ -1,6 +1,5 @@
 use crate::action::Action;
 use crate::handle;
-use rust_fel;
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -85,7 +84,8 @@ impl rust_fel::Component for handle::Handle<GrandChild> {
                 ..Default::default()
             },
         );
-        let grand = rust_fel::Element::new(
+
+        rust_fel::Element::new(
             "div".to_owned(),
             rust_fel::Props {
                 id: Some(self.0.borrow().id.clone()),
@@ -93,8 +93,6 @@ impl rust_fel::Component for handle::Handle<GrandChild> {
                 children: Some(vec![grand_el]),
                 ..Default::default()
             },
-        );
-
-        grand
+        )
     }
 }

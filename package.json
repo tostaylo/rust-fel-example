@@ -8,9 +8,7 @@
 		"cargo": "sh build.sh",
 		"build-ts": "tsc",
 		"cypress:open": "cypress open",
-		"cypress:run": "cypress run",
-		"ci": "sh ci.sh",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"cypress:run": "cypress run --browser chrome --headless --config video=false",
 		"node-server": "http-server --port 8000"
 	},
 	"author": "",

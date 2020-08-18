@@ -1,7 +1,6 @@
 use crate::action::Action;
 use crate::grand_child::{GCProps, GrandChild};
 use crate::handle;
-use rust_fel;
 use std::cell::RefCell;
 use std::fmt;
 use std::ops::DerefMut;
@@ -61,13 +60,12 @@ impl rust_fel::Component for handle::Handle<MainChild> {
         let mut clone = self.clone();
         let borrow = self.0.borrow();
         let mut child = borrow.child.clone();
-        let state = borrow.state.clone();
+        let state = borrow.state;
         let borrow_clone = borrow.clone();
         let closure_prop = borrow_clone.props.closure.unwrap();
         let rc_closure_prop = Rc::clone(&closure_prop);
-        let mut child_closure = move || clone.reduce_state(Action::Increment);
 
-        let on_click_closure = Box::new(move || {
+        let update_parent_on_click = Box::new(move || {
             let mut reference = rc_closure_prop.borrow_mut();
             let deref = reference.deref_mut();
             deref();
@@ -92,11 +90,12 @@ impl rust_fel::Component for handle::Handle<MainChild> {
             },
         );
 
+        let handle_inc_click = move || clone.reduce_state(Action::Increment);
         let inc_button = rust_fel::Element::new(
             "button".to_owned(),
             rust_fel::Props {
                 data_cy: Some("increment-main-child".to_owned()),
-                on_click: Some(Box::new(move || child_closure())),
+                on_click: Some(Box::new(handle_inc_click)),
                 children: Some(vec![inc_button_text]),
                 ..Default::default()
             },
@@ -112,7 +111,7 @@ impl rust_fel::Component for handle::Handle<MainChild> {
         let send_button = rust_fel::Element::new(
             "button".to_owned(),
             rust_fel::Props {
-                on_click: Some(on_click_closure),
+                on_click: Some(update_parent_on_click),
                 children: Some(vec![send_button_text]),
                 data_cy: Some("update-parent".to_owned()),
                 ..Default::default()
@@ -133,7 +132,8 @@ impl rust_fel::Component for handle::Handle<MainChild> {
                 ..Default::default()
             },
         );
-        let main = rust_fel::Element::new(
+
+        rust_fel::Element::new(
             "div".to_owned(),
             rust_fel::Props {
                 id: Some(self.0.borrow().id.clone()),
@@ -141,8 +141,6 @@ impl rust_fel::Component for handle::Handle<MainChild> {
                 children: Some(vec![main_el, child.render()]),
                 ..Default::default()
             },
-        );
-
-        main
+        )
     }
 }

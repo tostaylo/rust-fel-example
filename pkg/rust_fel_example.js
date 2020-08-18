@@ -208,25 +208,6 @@ export function main() {
     wasm.main();
 }
 
-/**
-* @param {number} a
-* @param {number} b
-* @returns {number}
-*/
-export function add(a, b) {
-    var ret = wasm.add(a, b);
-    return ret >>> 0;
-}
-
-/**
-* @param {string} name
-*/
-export function greet(name) {
-    var ptr0 = passStringToWasm0(name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-    var len0 = WASM_VECTOR_LEN;
-    wasm.greet(ptr0, len0);
-}
-
 function isLikeNone(x) {
     return x === undefined || x === null;
 }
@@ -283,9 +264,6 @@ async function init(input) {
     imports.wbg = {};
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
-    };
-    imports.wbg.__wbg_alert_78f4460edc592dce = function(arg0, arg1) {
-        alert(getStringFromWasm0(arg0, arg1));
     };
     imports.wbg.__wbg_instanceof_Window_e8f84259147dce74 = function(arg0) {
         var ret = getObject(arg0) instanceof Window;
@@ -417,8 +395,8 @@ async function init(input) {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper133 = function(arg0, arg1, arg2) {
-        var ret = makeMutClosure(arg0, arg1, 58, __wbg_adapter_12);
+    imports.wbg.__wbindgen_closure_wrapper127 = function(arg0, arg1, arg2) {
+        var ret = makeMutClosure(arg0, arg1, 56, __wbg_adapter_12);
         return addHeapObject(ret);
     };
 

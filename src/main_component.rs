@@ -2,7 +2,6 @@ use crate::action::Action;
 use crate::handle;
 use crate::main_child::{ChildProps, MainChild};
 use crate::main_sibling::MainSibling;
-use rust_fel;
 use std::cell::RefCell;
 use std::rc::Rc;
 use wasm_bindgen::JsCast;
@@ -66,7 +65,7 @@ impl rust_fel::Component for handle::Handle<Main> {
                     .dyn_into::<web_sys::HtmlInputElement>()
                     .expect("should be");
 
-                self.0.borrow_mut().state.input_val = input.value().to_owned();
+                self.0.borrow_mut().state.input_val = input.value();
             }
         }
 
@@ -160,7 +159,7 @@ impl rust_fel::Component for handle::Handle<Main> {
             },
         );
 
-        let main = rust_fel::Element::new(
+        rust_fel::Element::new(
             "div".to_owned(),
             rust_fel::Props {
                 id: Some(borrow.id.clone()),
@@ -168,8 +167,6 @@ impl rust_fel::Component for handle::Handle<Main> {
                 children: Some(vec![main_el, child_wrapper]),
                 ..Default::default()
             },
-        );
-
-        main
+        )
     }
 }
