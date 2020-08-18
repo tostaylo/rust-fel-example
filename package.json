@@ -15,7 +15,6 @@
 	"license": "ISC",
 	"devDependencies": {
 		"cypress": "^4.12.1",
-		"wait-on": "^5.2.0",
 		"http-server": "^0.12.3"
 	}
 }
