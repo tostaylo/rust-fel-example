@@ -1,4 +1,6 @@
-# rust_beats
+# rust_fel_example
+
+A website utilizing the rust_fel front end library for rust-wasm.
 
 Bootstrapped with
 wasm-bindgen/example/without-a-bundler
