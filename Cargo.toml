@@ -27,3 +27,6 @@ features = [
   'Window',
   'Text',
 ]
+
+[profile.release]
+lto = true

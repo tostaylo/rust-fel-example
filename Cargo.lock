@@ -67,7 +67,7 @@ dependencies = [
 [[package]]
 name = "rust-fel"
 version = "0.1.0"
-source = "git+https://github.com/tostaylo/rust-fel#43426efc125f34ace21196dd2b8332bbc8723459"
+source = "git+https://github.com/tostaylo/rust-fel#83f0fde03c7799c6f0afb1c66488d32e04e00c0a"
 dependencies = [
  "wasm-bindgen",
  "web-sys",
