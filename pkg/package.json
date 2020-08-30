@@ -3,11 +3,18 @@
   "collaborators": [
     "Torre Taylor"
   ],
+  "description": "An example website utilizing rust-fel 'https://github.com/tostaylo/rust-fel'",
   "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tostaylo/rust-fel-example"
+  },
   "files": [
     "rust-fel-example_bg.wasm",
     "rust-fel-example.js",
-    "rust-fel-example.d.ts"
+    "rust-fel-example.d.ts",
+    "LICENSE.txt"
   ],
   "module": "rust-fel-example.js",
   "types": "rust-fel-example.d.ts",

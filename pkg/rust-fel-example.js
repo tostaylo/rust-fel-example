@@ -199,7 +199,7 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     return real;
 }
 function __wbg_adapter_12(arg0, arg1) {
-    wasm.wasm_bindgen__convert__closures__invoke0_mut__hd661fd08d50e1e4b(arg0, arg1);
+    wasm.wasm_bindgen__convert__closures__invoke0_mut__h4559876aade726d3(arg0, arg1);
 }
 
 function handleError(f) {
